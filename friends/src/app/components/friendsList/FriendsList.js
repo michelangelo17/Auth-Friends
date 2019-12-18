@@ -72,6 +72,7 @@ const FriendsList = () => {
                 h='40px'
                 br='15px'
                 p='0 10px'
+                warning
                 value={friend.id}
                 onClick={e => showHideModal('delete', true, e)}
               >
@@ -82,6 +83,7 @@ const FriendsList = () => {
                 h='40px'
                 br='15px'
                 p='0 10px'
+                info
                 value={friend.id}
                 onClick={e => showHideModal('update', true, e)}
               >

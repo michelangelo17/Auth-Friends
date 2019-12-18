@@ -19,7 +19,14 @@ const DeleteFriendModal = ({ visible, close, id }) => {
       <>
         <EmoModalDiv>
           <P>Are you sure you want to delete this friend?</P>
-          <Button onClick={handleDelete} m='15px' h='40px' br='15px' p='0 10px'>
+          <Button
+            onClick={handleDelete}
+            danger
+            m='15px'
+            h='40px'
+            br='15px'
+            p='0 10px'
+          >
             Confirm
           </Button>
           <Button

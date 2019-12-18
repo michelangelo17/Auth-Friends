@@ -8,6 +8,7 @@ import {
   Button,
   EmoForm,
   H2,
+  FlexContainer,
 } from '../../../../emotionalThings/EmoTools'
 import { EmoUFModalDiv } from './EmoUpdateFriend'
 import { setIsLoading, putUpdateFriend } from '../../../../redux/slices'
@@ -58,10 +59,20 @@ const UpdateFriendModal = ({ visible, close, id }) => {
                 name='email'
                 placeholder='email'
               />
-              <Button type='button' onClick={() => close('update', false)}>
-                Cancel
-              </Button>
-              <Button type='submit'>Submit</Button>
+              <FlexContainer white>
+                <Button
+                  m='10px'
+                  p='5px'
+                  br='5px'
+                  type='button'
+                  onClick={() => close('update', false)}
+                >
+                  Cancel
+                </Button>
+                <Button m='10px' p='5px' br='5px' success type='submit'>
+                  Submit
+                </Button>
+              </FlexContainer>
             </EmoForm>
           </Formik>
         </EmoUFModalDiv>

@@ -73,7 +73,7 @@ const NewFriend = () => {
           <EmoField m='20px' type='number' name='age' placeholder='age' />
           <ErrorMessage name='email' component='p' />
           <EmoField m='20px' type='email' name='email' placeholder='email' />
-          <Button type='submit' disabled={isLoading}>
+          <Button p='5px' br='5px' success type='submit' disabled={isLoading}>
             Submit
           </Button>
         </EmoForm>

@@ -5,7 +5,7 @@ import FriendsList from './components/friendsList/FriendsList'
 import NewFriend from './components/newFriend/NewFriend'
 import EmoGlobal from '../emotionalThings/EmoGlobal'
 
-function App() {
+const App = () => {
   return (
     <>
       <EmoGlobal />
@@ -15,5 +15,4 @@ function App() {
     </>
   )
 }
-
 export default App

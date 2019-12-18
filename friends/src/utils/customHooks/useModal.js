@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { setStyle, removeStyle } from '../usefulFunctions'
 
 const useModal = () => {
   const [visible, setVisible] = useState({
@@ -13,6 +14,13 @@ const useModal = () => {
     addNewFriend: null,
   })
   const showHideModal = (key, bool, e) => {
+    bool
+      ? setStyle('root', {
+          filter: 'blur(5px)',
+          'pointer-events': 'none',
+          position: 'fixed',
+        })
+      : removeStyle('root', ['filter', 'pointer-events', 'position'])
     setVisible({
       ...visible,
       [key]: bool,

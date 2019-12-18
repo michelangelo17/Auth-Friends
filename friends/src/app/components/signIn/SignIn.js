@@ -46,7 +46,7 @@ const SignIn = () => {
             name='password'
             placeholder='enter password'
           />
-          <Button m='20px' type='submit' disabled={isLoading}>
+          <Button m='20px' type='submit' p='5px' br='5px' success disabled={isLoading}>
             Submit
           </Button>
         </EmoForm>
