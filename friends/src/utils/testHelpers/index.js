@@ -8,7 +8,10 @@ import thunk from 'redux-thunk'
 
 export const renderWithReduxThunkAndRouter = (
   ui,
-  { initialState, store = createStore(rootReducer, applyMiddleware(thunk), initialState) } = {}
+  {
+    initialState,
+    store = createStore(rootReducer, applyMiddleware(thunk), initialState),
+  } = {}
 ) => {
   const rendered = render(
     <Provider store={store}>

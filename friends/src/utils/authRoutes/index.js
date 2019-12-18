@@ -1,20 +1,11 @@
-import axios from 'axios'
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
-export const axiosWithAuth = () => {
-  const token = localStorage.getItem('token')
-
-  return axios.create({
-    baseURL: 'http://localhost:5000/api',
-    headers: {
-      Authorization: token,
-    },
-  })
-}
+import { useSelector, useDispatch } from 'react-redux'
+import { checkToken } from '../../redux/slices'
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
+  const dispatch = useDispatch()
+  dispatch(checkToken())
   const { signedIn } = useSelector(state => state)
   return (
     <Route
@@ -25,6 +16,8 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
 }
 
 export const SignInRoute = ({ component: Component, ...rest }) => {
+  const dispatch = useDispatch()
+  dispatch(checkToken())
   const { signedIn } = useSelector(state => state)
   return (
     <Route

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { axiosWithAuth } from '../../utils/usefulFuntions'
+import { axiosWithAuth } from '../../utils/axiosWithAuth'
 
-const rootReducer = createSlice({
+const rootSlice = createSlice({
   name: 'rootReducer',
   initialState: {
     signedIn: false,
@@ -9,6 +9,7 @@ const rootReducer = createSlice({
     friends: [],
     postSignInError: null,
     getFriendsListError: null,
+    friendToEdit: null,
   },
   reducers: {
     setSignedIn(state, action) {
@@ -26,6 +27,9 @@ const rootReducer = createSlice({
     setGetFriendsListError(state, action) {
       state.getFriendsListError = action.payload
     },
+    setFriendToEdit(state, action) {
+      state.friendToEdit = action.payload
+    },
   },
 })
 
@@ -35,9 +39,10 @@ export const {
   setFriends,
   setPostSignInError,
   setGetFriendsListError,
-} = rootReducer.actions
+  setFriendToEdit,
+} = rootSlice.actions
 
-export default rootReducer.reducer
+export default rootSlice.reducer
 
 // thunks
 
@@ -69,3 +74,39 @@ export const getFriendsList = () => dispatch =>
       dispatch(setGetFriendsListError(null))
     })
     .catch(err => dispatch(setGetFriendsListError(err.message)))
+
+export const postNewFriend = values => dispatch =>
+  axiosWithAuth()
+    .post('friends', values)
+    .then(res => {
+      dispatch(setIsLoading(false))
+      dispatch(setFriends(res.data))
+    })
+    .catch(err => {
+      dispatch(setIsLoading(false))
+      console.log(err)
+    })
+
+export const putUpdateFriend = (id, values) => dispatch =>
+  axiosWithAuth()
+    .put(`friends/${id}`, values)
+    .then(res => {
+      dispatch(setIsLoading(false))
+      dispatch(setFriends(res.data))
+    })
+    .catch(err => {
+      dispatch(setIsLoading(false))
+      console.log(err)
+    })
+
+export const deleteFriend = id => dispatch =>
+  axiosWithAuth()
+    .delete(`friends/${id}`)
+    .then(res => {
+      dispatch(setIsLoading(false))
+      dispatch(setFriends(res.data))
+    })
+    .catch(err => {
+      dispatch(setIsLoading(false))
+      console.log(err)
+    })

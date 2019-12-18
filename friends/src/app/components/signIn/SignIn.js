@@ -1,15 +1,21 @@
 import React from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useSelector, useDispatch } from 'react-redux'
 import { setIsLoading, postSignIn } from '../../../redux/slices'
+import {
+  EmoForm,
+  EmoField,
+  H1,
+  Button,
+} from '../../../emotionalThings/EmoTools'
 
 const SignIn = () => {
   const dispatch = useDispatch()
   const { isLoading } = useSelector(state => state)
   return (
     <>
-      <h1>Sign In</h1>
+      <H1 ta='center'>Sign In</H1>
       <Formik
         initialValues={{
           username: '',
@@ -25,15 +31,25 @@ const SignIn = () => {
           password: Yup.string().required(`can't be empty`),
         })}
       >
-        <Form>
+        <EmoForm fdc aic m='20px'>
           <ErrorMessage name='username' component='p' />
-          <Field type='username' name='username' placeholder='enter username' />
+          <EmoField
+            m='20px'
+            type='username'
+            name='username'
+            placeholder='enter username'
+          />
           <ErrorMessage name='password' component='p' />
-          <Field type='password' name='password' placeholder='enter password' />
-          <button type='submit' disabled={isLoading}>
+          <EmoField
+            m='20px'
+            type='password'
+            name='password'
+            placeholder='enter password'
+          />
+          <Button m='20px' type='submit' disabled={isLoading}>
             Submit
-          </button>
-        </Form>
+          </Button>
+        </EmoForm>
       </Formik>
     </>
   )

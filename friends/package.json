@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
     "@reduxjs/toolkit": "^1.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.0",
+    "emotion-reset": "^2.0.4",
     "formik": "^2.0.8",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
@@ -16,6 +19,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "redux-thunk": "^2.3.0",
+    "styled-map": "^3.3.0",
+    "webfontloader": "^1.6.28",
     "yup": "^0.28.0"
   },
   "scripts": {
