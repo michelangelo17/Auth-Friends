@@ -10,7 +10,6 @@ const rootSlice = createSlice({
     postSignInError: null,
     getFriendsListError: null,
     friendToEdit: null,
-    modalOnScreen: false,
   },
   reducers: {
     setSignedIn(state, action) {
@@ -31,9 +30,6 @@ const rootSlice = createSlice({
     setFriendToEdit(state, action) {
       state.friendToEdit = action.payload
     },
-    setModalOnScreen(state, action) {
-      state.modalOnScreen = action.payload
-    },
   },
 })
 
@@ -44,7 +40,6 @@ export const {
   setPostSignInError,
   setGetFriendsListError,
   setFriendToEdit,
-  setModalOnScreen,
 } = rootSlice.actions
 
 export default rootSlice.reducer
