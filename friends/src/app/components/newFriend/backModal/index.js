@@ -9,7 +9,14 @@ const BackModal = ({ visible, close }) =>
     <>
       <EmoModalDiv>
         <EmoLink to='/home'>
-          <Button success m='15px' h='40px' br='15px' p='0 10px'>
+          <Button
+            success
+            m='15px'
+            h='40px'
+            br='15px'
+            p='0 10px'
+            onClick={() => close('addNewFriend', false)}
+          >
             Go Home
           </Button>
         </EmoLink>

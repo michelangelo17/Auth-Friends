@@ -66,7 +66,7 @@ const NewFriend = () => {
             .required(`can't be empty`),
         })}
       >
-        <EmoForm m='100px 0 20px 0' fdc='true' aic='true'>
+        <EmoForm m='100px 0 20px 0' w='100vw' h='100vh' fdc='true' aic='true'>
           <ErrorMessage name='name' component='p' />
           <EmoField m='20px' type='string' name='name' placeholder='name' />
           <ErrorMessage name='age' component='p' />

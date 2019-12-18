@@ -4,7 +4,7 @@ import { styleVariables } from '../../../../emotionalThings/EmoTools'
 export const EmoModalDiv = styled.div`
   position: fixed;
   top: calc(40% - 100px);
-  left: calc(50% - 100px);
+  left: calc(50% - 125px);
   width: 250px;
   height: 200px;
   background-color: white;
